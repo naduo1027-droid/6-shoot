@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>六发猜词</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="stage" aria-label="游戏舞台">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Revolver Word Game</p>
+            <h1>六发猜词</h1>
+          </div>
+          <button class="icon-button" id="newGameTop" type="button" title="重新开始" aria-label="重新开始">
+            ↻
+          </button>
+        </div>
+
+        <div class="scene" id="scene">
+          <div class="moon"></div>
+          <div class="floor-line"></div>
+          <div class="cowboy" id="cowboy" aria-hidden="true">
+            <div class="cowboy-hat"></div>
+            <div class="cowboy-head"></div>
+            <div class="cowboy-poncho"></div>
+            <div class="cowboy-arm cowboy-arm-left"></div>
+            <div class="cowboy-arm cowboy-arm-right"></div>
+            <div class="cowboy-leg cowboy-leg-left"></div>
+            <div class="cowboy-leg cowboy-leg-right"></div>
+          </div>
+          <div class="character surrender" id="character" aria-hidden="true">
+            <div class="person-head"></div>
+            <div class="person-body"></div>
+            <div class="person-arm person-arm-left"></div>
+            <div class="person-arm person-arm-right"></div>
+            <div class="person-leg person-leg-left"></div>
+            <div class="person-leg person-leg-right"></div>
+          </div>
+          <div class="revolver" id="revolver" aria-hidden="true">
+            <div class="barrel"></div>
+            <div class="cylinder">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="grip"></div>
+            <div class="hammer"></div>
+            <div class="muzzle-flash"></div>
+          </div>
+          <div class="impact" id="impact" aria-hidden="true">BANG</div>
+        </div>
+
+        <div class="bullet-track" aria-label="错误次数">
+          <span class="bullet" data-bullet="1"></span>
+          <span class="bullet" data-bullet="2"></span>
+          <span class="bullet" data-bullet="3"></span>
+          <span class="bullet" data-bullet="4"></span>
+          <span class="bullet" data-bullet="5"></span>
+          <span class="bullet" data-bullet="6"></span>
+        </div>
+      </section>
+
+      <section class="control-panel" aria-label="游戏控制">
+        <div class="panel-head">
+          <div>
+            <p class="label">当前关卡</p>
+            <strong id="categoryName">Level 1 · 数字</strong>
+            <span class="meta-line" id="modeName">词语</span>
+          </div>
+          <div class="select-group">
+            <div class="select-wrap">
+              <select id="modeSelect" aria-label="选择题型">
+                <option value="word">词语</option>
+                <option value="sentence">句子</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="word-area" id="wordArea" aria-label="要猜的词"></div>
+
+        <div class="status-row">
+          <span id="message">提示加载中。</span>
+          <span id="wrongCounter">0 / 6</span>
+        </div>
+
+        <div class="keyboard" id="keyboard" aria-label="字母键盘"></div>
+
+        <div class="actions">
+          <button class="primary-button" id="newGame" type="button">新一局</button>
+          <button class="secondary-button" id="hintButton" type="button">提示</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./game.js"></script>
+  </body>
+</html>
